@@ -4,7 +4,7 @@ R ?= Rscript
 PDFLATEX ?= pdflatex
 BIBTEX ?= bibtex
 
-.PHONY: all analysis mixture plot paper verify clean
+.PHONY: all analysis mixture plot paper verify edsl-job edsl-job-check clean
 
 all: paper verify study_slope_grid.png
 
@@ -41,6 +41,12 @@ note.pdf: note.tex refs.bib analysis_macros.tex main_results_table.tex magnitude
 verify: note.pdf
 	! grep -E 'undefined|Citation .* undefined|LaTeX Error' note.log
 	$(PYTHON) verify_build.py
+
+edsl-job:
+	$(PYTHON) edsl/build_job.py
+
+edsl-job-check:
+	$(PYTHON) edsl/build_job.py --check
 
 clean:
 	rm -f analysis_cases.csv study_scores.csv mixture_results.json mixture_fold_weights.csv

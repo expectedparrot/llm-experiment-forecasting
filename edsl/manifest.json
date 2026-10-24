@@ -1,0 +1,12 @@
+{
+  "study_count": 70,
+  "effect_count": 469,
+  "models": [
+    "gpt-6-astra",
+    "claude-fable-5",
+    "gemini-4-argon"
+  ],
+  "interview_count": 1407,
+  "effect_direction": "condition B minus the first listed human condition, normalized to 0\u20131",
+  "reference_twins": "archived GPT-4 participant-response estimates, weighted by archived response weight"
+}

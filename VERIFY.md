@@ -7,6 +7,7 @@
 - score_one_shot_mixtures.py calculates per-model scores, equal means, leave-one-study-out MAE-optimal weights, study-cluster bootstrap intervals, and the LaTeX tables/macros. It uses 10,000 bootstrap draws with seed 20261024.
 - make_study_grid.R regenerates the all-contrast faceted slope graph using ggplot2. Each of 70 panels has a free vertical scale; the 469 contrasts are ranked and evenly spaced horizontally within study, and the lower-MAE path is emphasized.
 - The numerical result tables and prose macros are generated from the vendored forecast/outcome data, avoiding hand-copied summary statistics.
+- The exact EDSL job JSON, job reconstruction script, original EDSL results package, and a forecast exporter are included in edsl/. The reconstructed survey and scenarios match jobs.json, and exporting results.ep reproduces the 1,407 stored model predictions exactly by scenario/model key.
 
 ## Reproduction results
 
@@ -28,4 +29,6 @@
 - Full make build: passed.
 - LaTeX/BibTeX build: passed; no undefined citations or LaTeX errors.
 - Citation-key and bibliography-entry check: passed (5 cited references, no unused entries).
+- EDSL job reconstruction check: passed with EDSL 1.0.8.dev1.
+- EDSL result export: passed; all 1,407 forecasts match the stored CSV.
 - PDF page count from the final TeX log: 6.

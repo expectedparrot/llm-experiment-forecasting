@@ -105,3 +105,17 @@ Install Python dependencies with python -m pip install -r requirements.txt.
 The plot also requires R with ggplot2 3.5 or newer, ragg, and png; the paper
 build requires GNU Make and TeX Live (pdflatex and BibTeX). See
 [data/README.md](data/README.md) for data provenance and scope.
+
+## EDSL job and stored responses
+
+The EDSL job-construction code, exact serialized job, and original EDSL
+results package are included in [edsl/](edsl/). The job contains the numerical
+survey question, all 469 prompts, and the three model configurations used for
+the one-shot forecasts. To verify that the EDSL job can be reconstructed from
+the vendored prompts and archived model settings, install the optional EDSL
+dependency and run make edsl-job-check. The results exporter was checked
+against the stored forecast CSV and reproduces all 1,407 predictions exactly.
+
+The default make command uses the stored predictions and does not launch
+inference. Instructions for requesting new forecasts, which may incur model
+provider charges, are in [edsl/README.md](edsl/README.md).

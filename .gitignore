@@ -5,6 +5,8 @@
 *.out
 .mixture.stamp
 Rplots.pdf
+__pycache__/
+edsl/forecasts_from_results.csv
 experiment_bucket_plot.*
 experiment_bucket_plot_data.csv
 experiment_slope_plot.*
