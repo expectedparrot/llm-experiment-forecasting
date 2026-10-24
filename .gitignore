@@ -5,3 +5,14 @@
 *.out
 .mixture.stamp
 Rplots.pdf
+experiment_bucket_plot.*
+experiment_bucket_plot_data.csv
+experiment_slope_plot.*
+experiment_slope_plot_data.csv
+fig1.*
+figure_data.csv
+make_experiment_plot.R
+make_figure.R
+make_slope_plot.R
+paired_case_errors.csv
+study_slope_grid.png
