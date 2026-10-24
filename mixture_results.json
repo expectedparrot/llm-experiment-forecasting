@@ -1,0 +1,81 @@
+{
+  "weight_training": "For each held-out study, fit nonnegative weights summing to one by minimizing MAE on the other studies.",
+  "bootstrap": "Paired cluster bootstrap resampling 70 studies; seed 20261024; 10000 draws.",
+  "weighted_minus_equal_mae_bootstrap_95pct": [
+    -0.0003619291914993144,
+    0.0010385865708203658
+  ],
+  "weighted_minus_equal_mae_bootstrap_median": 0.00027745851619234116,
+  "mean_leave_one_study_out_weights": {
+    "gpt-6-astra": 0.18080464136023489,
+    "claude-fable-5": 0.33925647594850505,
+    "gemini-4-argon": 0.47993888269126006
+  },
+  "results": [
+    {
+      "method": "gpt-6-astra",
+      "contrasts": 469,
+      "studies": 70,
+      "mae": 0.05603689764053442,
+      "rmse": 0.07658428942008268,
+      "sign_accuracy": 0.7057569296375267,
+      "mae_difference_vs_original_twins": -0.017431330373123985,
+      "mae_difference_vs_original_twins_ci95": [
+        -0.03035291101990134,
+        -0.005140876765380811
+      ]
+    },
+    {
+      "method": "claude-fable-5",
+      "contrasts": 469,
+      "studies": 70,
+      "mae": 0.055607363421528985,
+      "rmse": 0.0818949859899083,
+      "sign_accuracy": 0.7014925373134329,
+      "mae_difference_vs_original_twins": -0.01786086459212942,
+      "mae_difference_vs_original_twins_ci95": [
+        -0.029438523262079942,
+        -0.006160278323043524
+      ]
+    },
+    {
+      "method": "gemini-4-argon",
+      "contrasts": 469,
+      "studies": 70,
+      "mae": 0.05512767454974879,
+      "rmse": 0.08109312271813084,
+      "sign_accuracy": 0.697228144989339,
+      "mae_difference_vs_original_twins": -0.018340553463909615,
+      "mae_difference_vs_original_twins_ci95": [
+        -0.031197475334369295,
+        -0.005350353844133934
+      ]
+    },
+    {
+      "method": "equal_weight_mean",
+      "contrasts": 469,
+      "studies": 70,
+      "mae": 0.053219627718007805,
+      "rmse": 0.07619803307573286,
+      "sign_accuracy": 0.6993603411513859,
+      "mae_difference_vs_original_twins": -0.0202486002956506,
+      "mae_difference_vs_original_twins_ci95": [
+        -0.032705290231893835,
+        -0.007967492877510654
+      ]
+    },
+    {
+      "method": "leave_one_study_out_weighted",
+      "contrasts": 469,
+      "studies": 70,
+      "mae": 0.053507020264791615,
+      "rmse": 0.07764838017217648,
+      "sign_accuracy": 0.7078891257995735,
+      "mae_difference_vs_original_twins": -0.01996120774886679,
+      "mae_difference_vs_original_twins_ci95": [
+        -0.032427801916795645,
+        -0.007669135270775267
+      ]
+    }
+  ]
+}
