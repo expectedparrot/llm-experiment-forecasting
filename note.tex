@@ -22,7 +22,7 @@
 \input{analysis_macros.tex}
 
 \begin{abstract}
-Language models can forecast an experiment by simulating respondents and aggregating their answers, or by predicting the treatment effect directly. We compare the archive's GPT-4 respondent-twin estimates \cite{ashokkumar2026predict} with one-shot forecasts from three frontier models on 469 contrasts across 70 social-science experiments. Direct forecasts have lower mean absolute error (MAE), and their equal-weight average performs best among evaluated forecasts; study-held-out weights add no improvement. The advantage appears in four of five groups defined by observed effect magnitude and is largest for the biggest effects. Because model generations and prompts differ, this comparison evaluates systems rather than isolating respondent simulation's value. A prospective, model-matched test is needed.
+Language models can forecast an experiment by simulating respondents and aggregating their answers, or by predicting the treatment effect directly. We compare the archive's GPT-4 respondent-twin estimates \cite{ashokkumar2026predict} with one-shot forecasts from three frontier models on 469 contrasts across 70 social-science experiments. Direct forecasts have lower mean absolute error (MAE), and their equal-weight average performs best among evaluated forecasts; study-held-out weights add no improvement. The one-shot mean has lower MAE in all five groups defined by observed effect magnitude, with a small difference for the smallest effects and larger gains for larger effects. Because model generations and prompts differ, this comparison evaluates systems rather than isolating respondent simulation's value. A prospective, model-matched test is needed.
 \end{abstract}
 
 \section{Introduction}
@@ -81,7 +81,7 @@ The individual one-shot models have MAEs between \BestSingleMAEMin{} and \BestSi
 \end{table}
 
 \subsection{Performance across effect magnitudes}
-Table~\ref{tab:magnitude} shows contrast-level MAEs by fifth of observed effect magnitude. One-shots and twins are nearly tied in the smallest-effect fifth, while the one-shot mean has lower MAE in the other four fifths. The difference is largest in the top fifth. These bins are descriptive and should not be read as a pre-registered subgroup test.
+Table~\ref{tab:magnitude} shows contrast-level MAEs by fifth of observed effect magnitude. The one-shot mean has lower MAE in all five groups; the difference is small for the smallest effects and increases across the larger-effect groups. These bins are descriptive and should not be read as a pre-registered subgroup test.
 
 \begin{table}[t]
 \centering

@@ -15,4 +15,3 @@ make_experiment_plot.R
 make_figure.R
 make_slope_plot.R
 paired_case_errors.csv
-study_slope_grid.png

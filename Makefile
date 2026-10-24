@@ -6,7 +6,7 @@ BIBTEX ?= bibtex
 
 .PHONY: all analysis mixture plot paper verify clean
 
-all: paper verify
+all: paper verify study_slope_grid.png
 
 analysis: study_scores.csv
 
@@ -22,10 +22,13 @@ mixture_results.json main_results_table.tex magnitude_results_table.tex analysis
 	$(PYTHON) score_one_shot_mixtures.py
 	touch .mixture.stamp
 
-plot: study_slope_grid.pdf
+plot: study_slope_grid.pdf study_slope_grid.png
 
 study_slope_grid.pdf: study_scores.csv make_study_grid.R
 	$(R) make_study_grid.R
+
+study_slope_grid.png: study_slope_grid.pdf
+	@test -f "$@" || { rm -f "$<"; $(MAKE) "$<"; }
 
 paper: note.pdf
 
