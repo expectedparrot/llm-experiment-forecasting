@@ -116,6 +116,40 @@ the vendored prompts and archived model settings, install the optional EDSL
 dependency and run make edsl-job-check. The results exporter was checked
 against the stored forecast CSV and reproduces all 1,407 predictions exactly.
 
+
+The forecast request is one scalar numerical question per scenario and model.
+Each scenario's prompt contains the two experimental conditions and asks for
+the normalized mean difference, B minus A. The job was constructed in EDSL
+with this pattern:
+
+```python
+import pandas as pd
+from edsl import Model, ModelList, QuestionNumerical, ScenarioList, Survey
+
+scenarios = pd.read_csv(
+    "data/one_shot_scenarios.csv"
+).to_dict(orient="records")
+models = ModelList([
+    Model("gpt-6-astra"),
+    Model("claude-fable-5"),
+    Model("gemini-4-argon"),
+])
+survey = Survey([
+    QuestionNumerical(
+        question_name="predicted_effect",
+        question_text="{{ prompt }}",
+        min_value=-1,
+        max_value=1,
+        include_comment=False,
+    )
+], name="Full archive one-shot treatment effect forecasts")
+
+jobs = survey.by(ScenarioList.from_list_of_dicts(scenarios)).by(models)
+```
+
+The archived job in [edsl/jobs.json](edsl/jobs.json) preserves the provider
+and model settings used for the recorded forecasts.
+
 The default make command uses the stored predictions and does not launch
 inference. Instructions for requesting new forecasts, which may incur model
 provider charges, are in [edsl/README.md](edsl/README.md).
